@@ -1,0 +1,26 @@
+//
+//  AppDelegate.swift
+//  Netflix Desktop
+//
+//  Created by mayuri kulkarni on 01/07/20.
+//  Copyright © 2020 mayuri kulkarni. All rights reserved.
+//
+
+import Cocoa
+
+@NSApplicationMain
+class AppDelegate: NSObject, NSApplicationDelegate {
+
+
+
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // Insert code here to initialize your application
+    }
+
+    func applicationWillTerminate(_ aNotification: Notification) {
+        // Insert code here to tear down your application
+    }
+
+
+}
+
