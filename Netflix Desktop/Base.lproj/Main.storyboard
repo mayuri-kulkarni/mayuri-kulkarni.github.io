@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Netflix_Desktop" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +705,120 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Netflix_Desktop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="2560" height="1600"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gsU-iR-fQ1">
+                                <rect key="frame" x="0.0" y="0.0" width="2560" height="1552"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="TMe-mf-utd">
+                                <rect key="frame" x="0.0" y="1552" width="2560" height="48"/>
+                                <subviews>
+                                    <box boxType="custom" borderWidth="0.0" title="Box" id="AyU-ox-o58">
+                                        <rect key="frame" x="-1080" y="-65" width="8039" height="131"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" id="fhK-B7-V7i">
+                                            <rect key="frame" x="0.0" y="0.0" width="8039" height="131"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </box>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="gyA-8r-aVD" userLabel="exit Button">
+                                        <rect key="frame" x="18" y="0.0" width="64" height="48"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="exit " imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="wv5-To-fIF">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <color key="contentTintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <action selector="exitButtonClicked:" target="XfG-lQ-9wD" id="gCz-Sf-5p0"/>
+                                        </connections>
+                                    </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="ElR-6A-y3V" userLabel="back Button">
+                                        <rect key="frame" x="118" y="16" width="32" height="16"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="back" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Kfv-hx-219">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="backButtonClicked:" target="XfG-lQ-9wD" id="WnG-Br-wEY"/>
+                                        </connections>
+                                    </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="wEV-Qd-yuK" userLabel="forward Button">
+                                        <rect key="frame" x="186" y="16" width="32" height="16"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="forward" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ZQz-eP-EBz">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="forwardClicked:" target="XfG-lQ-9wD" id="RZs-S2-boY"/>
+                                        </connections>
+                                    </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="hM6-Vp-wHe" userLabel="refresh Button">
+                                        <rect key="frame" x="254" y="16" width="32" height="16"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="refresh" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="AcM-Dd-S1R">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="refreshButtonClicked:" target="XfG-lQ-9wD" id="Fba-nc-o11"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ElR-6A-y3V" secondAttribute="bottom" constant="16" id="3Sh-wA-d3c"/>
+                                    <constraint firstItem="wEV-Qd-yuK" firstAttribute="top" secondItem="TMe-mf-utd" secondAttribute="top" constant="16" id="3vG-mt-DUq"/>
+                                    <constraint firstAttribute="bottom" secondItem="hM6-Vp-wHe" secondAttribute="bottom" constant="16" id="51p-p8-YnJ"/>
+                                    <constraint firstItem="ElR-6A-y3V" firstAttribute="leading" secondItem="gyA-8r-aVD" secondAttribute="trailing" constant="36" id="Dao-Ub-zwG"/>
+                                    <constraint firstAttribute="bottom" secondItem="gyA-8r-aVD" secondAttribute="bottom" id="Gok-Ka-lMx"/>
+                                    <constraint firstItem="gyA-8r-aVD" firstAttribute="top" secondItem="TMe-mf-utd" secondAttribute="top" id="M83-OZ-4Js"/>
+                                    <constraint firstAttribute="height" constant="48" id="O2O-aP-1sy"/>
+                                    <constraint firstItem="hM6-Vp-wHe" firstAttribute="leading" secondItem="wEV-Qd-yuK" secondAttribute="trailing" constant="36" id="Skv-Pd-KdX"/>
+                                    <constraint firstItem="ElR-6A-y3V" firstAttribute="top" secondItem="TMe-mf-utd" secondAttribute="top" constant="16" id="Zuz-5g-OXY"/>
+                                    <constraint firstItem="gyA-8r-aVD" firstAttribute="leading" secondItem="TMe-mf-utd" secondAttribute="leading" constant="18" id="hO9-yk-E5O"/>
+                                    <constraint firstItem="hM6-Vp-wHe" firstAttribute="top" secondItem="TMe-mf-utd" secondAttribute="top" constant="16" id="tRd-Np-kRd"/>
+                                    <constraint firstItem="wEV-Qd-yuK" firstAttribute="leading" secondItem="ElR-6A-y3V" secondAttribute="trailing" constant="36" id="tr6-hG-19u"/>
+                                    <constraint firstAttribute="bottom" secondItem="wEV-Qd-yuK" secondAttribute="bottom" constant="16" id="zEe-iI-mG2"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="TMe-mf-utd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="57w-D6-8UA"/>
+                            <constraint firstItem="TMe-mf-utd" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="7Ep-7v-yfD"/>
+                            <constraint firstItem="gsU-iR-fQ1" firstAttribute="top" secondItem="TMe-mf-utd" secondAttribute="bottom" id="Cfa-up-Kc9"/>
+                            <constraint firstItem="gsU-iR-fQ1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Rgy-d6-u2u"/>
+                            <constraint firstAttribute="bottom" secondItem="gsU-iR-fQ1" secondAttribute="bottom" id="UZL-rW-91o"/>
+                            <constraint firstAttribute="trailing" secondItem="TMe-mf-utd" secondAttribute="trailing" id="gF6-2e-Rhh"/>
+                            <constraint firstAttribute="trailing" secondItem="gsU-iR-fQ1" secondAttribute="trailing" id="u72-BL-Bo0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webview" destination="gsU-iR-fQ1" id="uRb-Ys-deM"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <button id="3T5-XA-9ov" userLabel="back Button">
+                    <rect key="frame" x="0.0" y="0.0" width="32" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="back" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="E0P-Mj-RqZ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="32" height="32"/>
+        <image name="exit " width="64" height="64"/>
+        <image name="forward" width="32" height="32"/>
+        <image name="refresh" width="32" height="32"/>
+    </resources>
 </document>

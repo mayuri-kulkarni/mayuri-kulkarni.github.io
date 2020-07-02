@@ -7,21 +7,43 @@
 //
 
 import Cocoa
+import WebKit
+class ViewController: NSViewController  {
 
-class ViewController: NSViewController {
-
+    @IBOutlet weak var webview: WKWebView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        webview.allowsBackForwardNavigationGestures = true
+
+        let myURL = URL(string:"https://www.netflix.com")
+                   let myRequest = URLRequest(url: myURL!)
+                   webview.load(myRequest)
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    
+    
+    @IBAction func exitButtonClicked(_ sender: Any) {
+        print("exitButtonClicked")
+        self.view.window?.close()
     }
+    
 
+    @IBAction func backButtonClicked(_ sender: Any) {
+        webview.goBack()
+        print("goBack")
 
+    }
+    
+    @IBAction func forwardClicked(_ sender: Any) {
+        webview.goForward()
+        print("goForward")
+
+    }
+    
+    @IBAction func refreshButtonClicked(_ sender: Any) {
+        webview.reloadFromOrigin()
+        print("reload")
+    }
 }
 

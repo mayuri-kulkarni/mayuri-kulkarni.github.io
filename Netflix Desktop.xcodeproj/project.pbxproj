@@ -11,9 +11,11 @@
 		47644B2424AC9A4100C5486D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47644B2324AC9A4100C5486D /* ViewController.swift */; };
 		47644B2624AC9A4200C5486D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47644B2524AC9A4200C5486D /* Assets.xcassets */; };
 		47644B2924AC9A4200C5486D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47644B2724AC9A4200C5486D /* Main.storyboard */; };
+		47AA014D24ADD467003D99D9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47AA014C24ADD467003D99D9 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		473EC61A24ACE8A3002B4B71 /* Netflix DesktopDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Netflix DesktopDebug.entitlements"; sourceTree = "<group>"; };
 		47644B1E24AC9A4100C5486D /* Netflix Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47644B2124AC9A4100C5486D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47644B2324AC9A4100C5486D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -21,6 +23,7 @@
 		47644B2824AC9A4200C5486D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47644B2A24AC9A4200C5486D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47644B2B24AC9A4200C5486D /* Netflix_Desktop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Netflix_Desktop.entitlements; sourceTree = "<group>"; };
+		47AA014C24ADD467003D99D9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AA014D24ADD467003D99D9 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +43,7 @@
 			children = (
 				47644B2024AC9A4100C5486D /* Netflix Desktop */,
 				47644B1F24AC9A4100C5486D /* Products */,
+				47AA014B24ADD467003D99D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +58,7 @@
 		47644B2024AC9A4100C5486D /* Netflix Desktop */ = {
 			isa = PBXGroup;
 			children = (
+				473EC61A24ACE8A3002B4B71 /* Netflix DesktopDebug.entitlements */,
 				47644B2124AC9A4100C5486D /* AppDelegate.swift */,
 				47644B2324AC9A4100C5486D /* ViewController.swift */,
 				47644B2524AC9A4200C5486D /* Assets.xcassets */,
@@ -61,6 +67,14 @@
 				47644B2B24AC9A4200C5486D /* Netflix_Desktop.entitlements */,
 			);
 			path = "Netflix Desktop";
+			sourceTree = "<group>";
+		};
+		47AA014B24ADD467003D99D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47AA014C24ADD467003D99D9 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,9 +283,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Netflix Desktop/Netflix_Desktop.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Netflix Desktop/Netflix DesktopDebug.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7ZN2TD54M3;
 				INFOPLIST_FILE = "Netflix Desktop/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -288,8 +304,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Netflix Desktop/Netflix_Desktop.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Netflix Desktop/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
