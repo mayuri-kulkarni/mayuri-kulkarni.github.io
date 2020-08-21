@@ -9,3 +9,9 @@ Custom tool bar with following buttons
 # Screenshot
 ![adb](https://github.com/mayuri-kulkarni/netflix-macos-desktop-app/blob/master/Screenshot%202020-07-02%20at%203.57.18%20PM.png)
 
+
+# how to create .app file
+Product -> Archive Then export on the right hand side to somewhere on your drive.
+
+
+
